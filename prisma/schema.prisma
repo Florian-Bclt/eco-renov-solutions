@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Submission {
+  id                Int      @id @default(autoincrement())
+  logement          String
+  surface           Int
+  codePostal        String
+  ville             String
+  anneeConstruction String
+  niveaux           Int
+  energieChauffage  String
+  typeChauffage     String
+  personnesFoyer    Int
+  revenuFiscal      String
+  besoinsTravaux    String   // Stocké sous forme de JSON pour les checkbox
+  travauxRealises   String?  
+  email            String?  @unique
+  phone            String?  
+  createdAt        DateTime @default(now())
+}
+
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password      String
+  name          String?
+  role          String   @default("admin")
+  createdAt     DateTime  @default(now())
+  updated       DateTime  @updatedAt
+}
+
+model Investment {
+  id        Int   @id @default(1)
+  amount    Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
