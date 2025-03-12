@@ -12,7 +12,7 @@ export default function Step1({ formData, handleChange, nextStep }: Step1Props) 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateAndProceed = () => {
-    let newErrors: { [key: string]: string } = {};
+    const newErrors: { [key: string]: string } = {};
 
     if (!formData.logement) newErrors.logement = "Veuillez sélectionner un type de logement.";
     if (!formData.surface) newErrors.surface = "Veuillez indiquer la surface habitable.";

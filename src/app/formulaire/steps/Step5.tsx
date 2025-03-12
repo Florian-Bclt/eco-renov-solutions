@@ -2,9 +2,27 @@
 
 import { ChangeEvent, useState } from "react";
 
+type FormDataType = {
+  logement: string;
+  surface: string;
+  codePostal: string;
+  ville: string;
+  anneeConstruction: string;
+  niveaux: string;
+  travauxRealises: string[];
+  energieChauffage: string;
+  typeChauffage: string;
+  eauChaude: string;
+  personnesFoyer: string;
+  revenuFiscal: string;
+  besoinsTravaux: string[];
+  email: string;
+  phone: string;
+}
+
 type Step5Props = {
   formData: { besoinsTravaux: string[]; email: string; phone: string };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleMultiSelect: (e: ChangeEvent<HTMLInputElement>) => void;
   prevStep: () => void;
@@ -60,6 +78,7 @@ export default function Step5({ formData, setFormData, handleChange, handleMulti
         phone: "",
       });
     } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error)
       setError("Une erreur est survenue. Veuillez réessayer.")
     } finally {
       setLoading(false);
