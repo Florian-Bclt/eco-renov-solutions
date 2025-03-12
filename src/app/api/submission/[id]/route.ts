@@ -3,11 +3,7 @@ import prisma from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
-type Context = {
-  params: { id: string };
-};
-
-export async function DELETE(req: Request, { params }: Context ) {
+export async function DELETE(req: Request, { params }: { params: { id: string}} ) {
   try {
     // Vérifie si l'utilisateur est authentifié et est admin
     const session = await getServerSession(authOptions);
