@@ -106,7 +106,7 @@ const Photovoltaique = () => {
         </div>
         <div className="mt-6 text-lg text-gray-700 text-center">
           <p>Nous proposons des kits photovoltaïques adaptés aux différentes tailles de foyers :</p>
-          <ul className="text-lg text-gray-700 text-left max-w-xl mx-auto mt-4 ml-4">
+          <ul className="text-lg text-gray-700 text-left max-w-xl mx-auto mt-4">
             <li>✔ 3 kWc : Idéal pour les petites habitations.</li>
             <li>✔ 6 kWc : Convient aux maisons de taille moyenne.</li>
             <li>✔ 9 kWc : Parfait pour les grandes maisons avec une consommation énergétique élevée.</li>
